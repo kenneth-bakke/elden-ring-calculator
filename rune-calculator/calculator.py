@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from config import ELDEN_RING
 from attributes import Attribute
+from character_details import CharacterDetails
 
 
 class RuneCalculator:
@@ -23,10 +24,17 @@ class RuneCalculator:
         self.attributes.grid(column=0, row=1, sticky=(N, W, E, S))
         self.weapons.grid(column=1, row=1, sticky=(N, W, E, S))
 
+        # CHARACTER DETAILS SECTION
+        CharacterDetails(self.character_details, "Placeholder")
+
         # ATTRIBUTES SECTION
         for i, attribute in enumerate(ELDEN_RING["ATTRIBUTES"]):
-            Attribute(self.attributes, i, attribute, 0)
+            Attribute(self.attributes, i, attribute)
 
+        # ITEMS SECTION
+        self.items_label = ttk.Label(self.weapons, text="Items")
+
+        self.items_label.grid(column=3, row=2, columnspan=4, sticky=W)
         # WEAPONS SECTION
         self.weapons_label = ttk.Label(self.weapons, text="Weapons").grid(column=3, row=2, columnspan=4, sticky=W)
         self.weapon_categories_var = StringVar(self.weapons, name="Weapon Categories")

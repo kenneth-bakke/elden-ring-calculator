@@ -5,7 +5,7 @@ from config import ELDEN_RING
 
 # TODO: ADD RUNES NEEDED
 class CharacterDetails:
-    def __init__(self, root, level=None, class_type=None, runes_held=0, name=None):
+    def __init__(self, root, name="", level=1, class_type="Wretch", runes_held=0):
 
         self.mainframe = ttk.Frame(root, border=1, borderwidth=1, relief="sunken")
 
@@ -20,23 +20,26 @@ class CharacterDetails:
         self.edit_level = False if self.character_level else True
         self.character_classes_list = ELDEN_RING["CLASSES"].keys()
 
-        # Widgets
+        # WIDGETS
         # Name
-        self.character_name_label = ttk.Label(
-            self.mainframe, text="Character Name", border=1, borderwidth=1, relief="sunken"
-        )
+        self.character_name_label = ttk.Label(self.mainframe, text="Character Name")
         self.character_name_entry = ttk.Entry(self.mainframe, textvariable=self.character_name)
         self.character_name_display = ttk.Label(self.mainframe, text=self.character_name)
+
         # Level
-        self.character_level_label = ttk.Label(
-            self.mainframe, text="Current Level", border=1, borderwidth=1, relief="sunken"
-        )
+        self.character_level_label = ttk.Label(self.mainframe, text="Current Level")
         self.character_level_entry = ttk.Entry(self.mainframe, textvariable=self.character_level)
         self.character_level_display = ttk.Label(self.mainframe, text=self.character_level)
 
-        # Runes TODO
-
         # Class TODO
+        # self.character_classes_combobox = ttk.Combobox(
+        #     self.character_details, height=8, justify="left", text="Classes", textvariable=self.character_class_var
+        # )
+        # self.character_classes_combobox["values"] = [char_class for char_class in self.character_classes_list]
+        # self.character_classes_combobox.current(0)
+        # self.character_classes_combobox.grid(column=2, row=4, sticky=W)
+
+        # Runes TODO
 
         # self.runes_held_label = ttk.Label(self.character_details, text="Runes Held")
         # self.runes_held_entry = ttk.Entry(self.character_details, text="Runes Held", textvariable=self.runes_held)
@@ -50,25 +53,17 @@ class CharacterDetails:
         self.character_level_entry.bind("<Return>", self.set_character_level)
         self.character_level_display.bind("<Button-1>", self.toggle_edit_level)
 
-        # Grid
+        # GRID
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.character_name_label.grid(column=1, row=1, columnspan=2, sticky=W)
         self.character_level_label.grid(column=1, row=3, columnspan=2, sticky=W)
         self.initialize_character_details()
 
-        # self.character_name_entry.grid(column=2, row=2, sticky=W)
         # self.runes_held_label.grid(column=1, row=3, sticky=W)
         # self.runes_held_entry.grid(column=2, row=3, sticky=W)
         # self.runes_needed_label.grid(column=3, row=3, sticky=W)
         # self.runes_needed_display.grid(column=4, row=3, sticky=W)
         # self.character_class.grid(column=1, row=4, sticky=W)
-
-        # self.character_classes_combobox = ttk.Combobox(
-        #     self.character_details, height=8, justify="left", text="Classes", textvariable=self.character_class_var
-        # )
-        # self.character_classes_combobox["values"] = [char_class for char_class in self.character_classes_list]
-        # self.character_classes_combobox.current(0)
-        # self.character_classes_combobox.grid(column=2, row=4, sticky=W)
 
     def initialize_character_details(self):
         self.initialize_name_display()
@@ -84,8 +79,8 @@ class CharacterDetails:
             self.character_name_entry.grid_remove()
 
     def initialize_level_display(self):
-        self.character_level_entry.grid(column=1, row=4, sticky=W)
-        self.character_level_display.grid(column=1, row=4, sticky=W)
+        self.character_level_entry.grid(column=1, row=4, sticky=(W, E))
+        self.character_level_display.grid(column=1, row=4, sticky=(W, E))
         if self.edit_level:
             self.character_level_display.grid_remove()
         else:
@@ -117,6 +112,8 @@ class CharacterDetails:
 
     def set_character_level(self, event=None):
         level = int(self.character_level_entry.get())
+        if level < 1:
+            level = 1
         self.character_level = level
         self.character_level_display["text"] = self.character_level
         self.character_level_entry.delete(0, END)
@@ -132,6 +129,6 @@ class CharacterDetails:
             self.character_level_display.grid(column=1, row=4, sticky=W)
 
 
-root = Tk()
-CharacterDetails(root, 9, "Bandit", 3000, "Bingosa")
-root.mainloop()
+# root = Tk()
+# CharacterDetails(root, 9, "Bandit", 3000, "Bingosa")
+# root.mainloop()
