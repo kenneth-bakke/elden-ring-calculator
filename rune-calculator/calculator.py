@@ -17,12 +17,12 @@ class RuneCalculator:
         # MAIN FRAMES GRID
         self.character_details = ttk.Frame(self.mainframe, borderwidth=2, relief="sunken")
         self.attributes = ttk.Frame(self.mainframe, borderwidth=2, relief="sunken")
-        self.weapons = ttk.Frame(self.mainframe, borderwidth=2, relief="sunken")
+        self.items = ttk.Frame(self.mainframe, borderwidth=2, relief="sunken")
 
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.character_details.grid(column=0, row=0, columnspan=4, rowspan=1, sticky=(N, W, E, S))
         self.attributes.grid(column=0, row=1, sticky=(N, W, E, S))
-        self.weapons.grid(column=1, row=1, sticky=(N, W, E, S))
+        self.items.grid(column=1, row=1, sticky=(N, W, E, S))
 
         # CHARACTER DETAILS SECTION
         CharacterDetails(self.character_details, "Placeholder")
@@ -32,12 +32,10 @@ class RuneCalculator:
             Attribute(self.attributes, i, attribute)
 
         # ITEMS SECTION
-        self.items_label = ttk.Label(self.weapons, text="Items")
-
+        self.items_label = ttk.Label(self.items, text="Choose Item Type")
         self.items_label.grid(column=3, row=2, columnspan=4, sticky=W)
         # WEAPONS SECTION
-        self.weapons_label = ttk.Label(self.weapons, text="Weapons").grid(column=3, row=2, columnspan=4, sticky=W)
-        self.weapon_categories_var = StringVar(self.weapons, name="Weapon Categories")
+        self.weapon_categories_var = StringVar(self.items, name="Weapon Categories")
         self.weapon_categories_list = ELDEN_RING["WEAPON_CATEGORIES"].keys()
         self.weapon_categories_combobox = ttk.Combobox(
             self.weapons, height=10, justify="left", text="Weapon Categories", textvariable=self.weapon_categories_var
