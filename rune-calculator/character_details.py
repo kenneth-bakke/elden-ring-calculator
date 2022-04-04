@@ -62,7 +62,7 @@ class CharacterDetails:
         self.runes_held_entry.bind("<Return>", self.set_runes_held)
         self.runes_held_display.bind("<Button-1>", self.toggle_edit_runes_held)
         self.class_type_combobox.bind("<<ComboboxSelected>>", self.set_class_type)
-        self.class_type_combobox.bind("<Button-1>", self.toggle_choose_class)
+        self.class_type_display.bind("<Button-1>", self.toggle_choose_class)
 
         # GRID
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
@@ -153,7 +153,7 @@ class CharacterDetails:
             self.choose_class = True
         else:
             self.choose_class = True
-        self.class_type_combobox.current(indexOf(class_type))
+        self.class_type_display["text"] = self.class_type
         self.toggle_choose_class()
 
     # Toggles
