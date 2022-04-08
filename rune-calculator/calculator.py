@@ -1,5 +1,4 @@
 import os
-from telnetlib import EL
 from tkinter import *
 from tkinter import ttk
 from config import ELDEN_RING

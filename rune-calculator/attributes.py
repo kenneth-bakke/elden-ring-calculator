@@ -1,5 +1,3 @@
-from cgitb import text
-from lib2to3.pgen2.token import AT
 from tkinter import *
 from tkinter import ttk
 

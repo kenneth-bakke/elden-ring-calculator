@@ -9,6 +9,14 @@ ELDEN_RING = {
         "Faith": {},
         "Arcane": {},
     },
+    "ITEM_CATEGORIES": {
+        "Weapons": {},
+        "Shields": {},
+        "Armor": {},
+        "Talismans": {},
+        "Sorceries": {},
+        "Incantations": {},
+    },
     "WEAPON_CATEGORIES": {
         "Axes": {},
         "Ballistae": {},
