@@ -54,7 +54,7 @@ class CharacterDetails:
         )
         self.class_type_display = ttk.Label(self.mainframe, text="Class")
 
-        # Event Handlers
+        # EVENT BINDINGS
         self.name_entry.bind("<Return>", self.set_name)
         self.name_display.bind("<Button-1>", self.toggle_edit_name)
         self.level_entry.bind("<Return>", self.set_level)
@@ -78,7 +78,7 @@ class CharacterDetails:
         self.initialize_rune_display()
         self.initialize_class_display()
 
-    # Initializers
+    # INITIALIZERS
     def initialize_name_display(self):
         self.name_entry.grid(column=1, row=2, sticky=W)
         self.name_display.grid(column=1, row=2, sticky=W)
