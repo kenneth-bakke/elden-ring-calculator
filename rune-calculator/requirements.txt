@@ -11,3 +11,4 @@ python-dotenv==0.20.0
 Werkzeug==2.1.1
 python-dotenv
 requests
+pytest
