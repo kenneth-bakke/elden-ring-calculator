@@ -9,3 +9,5 @@ pyinstaller==4.10
 pyinstaller-hooks-contrib==2022.3
 python-dotenv==0.20.0
 Werkzeug==2.1.1
+python-dotenv
+requests

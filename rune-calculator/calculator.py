@@ -37,7 +37,7 @@ class RuneCalculator:
         self.weapon_categories_var = StringVar(self.items, name="Weapon Categories")
         self.weapon_categories_list = ELDEN_RING["WEAPON_CATEGORIES"].keys()
         self.weapon_categories_combobox = ttk.Combobox(
-            self.weapons, height=10, justify="left", text="Weapon Categories", textvariable=self.weapon_categories_var
+            self.items, height=10, justify="left", text="Weapon Categories", textvariable=self.weapon_categories_var
         )
         self.weapon_categories_combobox["values"] = [category for category in self.weapon_categories_list]
         self.weapon_categories_combobox.current(0)
