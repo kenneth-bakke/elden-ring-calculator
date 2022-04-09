@@ -128,8 +128,8 @@ class CharacterDetails:
         level = int(self.level_entry.get())
         if level < 1:
             level = 1
-        if level > 500:
-            level = 500
+        if level > 713:
+            level = 713
         self.level = level
         self.level_display["text"] = self.level
         self.level_entry.delete(0, END)
